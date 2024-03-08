@@ -1,0 +1,83 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="title-container glassmorphism">
+    <div class="header">
+    <h3>Schedule Your Post</h3>
+    <h3></h3>
+    </div>
+    <p></p>
+</div>
+
+    <div class="form-container glassmorphism">
+        <form action="./add" method="post" autocomplete="off"> {% csrf_token %}
+            {% comment %} Radio button to choose where to post {% endcomment %}
+            <div class="form-group">
+                <label for="post-handle">Post to:</label>
+                <div class="radio-group">
+                    <input type="radio" id="facebook" name="post-handle" value="facebook" checked required>
+                    <label for="facebook"><i class="fab fa-facebook"></i></label>
+                    <input type="radio" id="twitter" name="post-handle" value="twitter">
+                    <label for="twitter"><i class="fab fa-twitter"></i></label>
+                    <input type="radio" id="instagram" name="post-handle" value="instagram">
+                    <label for="instagram"><i class="fab fa-instagram"></i></label>
+                    <input type="radio" id="linkedin" name="post-handle" value="linkedin">
+                    <label for="linkedin"><i class="fab fa-linkedin"></i></label>
+                    <input type="radio" id="pinterest" name="post-handle" value="pinterest">
+                    <label for="pinterest"><i class="fab fa-pinterest"></i></label>
+                    <input type="radio" id="youtube" name="post-handle" value="youtube">
+                    <label for="youtube"><i class="fab fa-youtube"></i></label>
+                </div>
+            </div>
+            {% comment %} title {% endcomment %}
+            <div class="form-group">
+                <label for="post-title">Post Title:</label>
+                <input type="text" name="post-title" id="post-title" required>
+            </div>
+            <div class="form-group">
+                <label for="post-text">Post Text:</label>
+                <textarea name="post-text" id="post-text" cols="30" rows="10" required></textarea>
+            </div>
+            {% comment %} CHOOSE DATE AND TIME {% endcomment %}
+            <div class="form-group">
+                <label for="post-date">Post Date:</label>
+                <input type="date" name="post-date" id="post-date" required>
+            </div>
+            <div class="form-group">
+                <label for="post-time">Post Time:</label>
+                <input type="time" name="post-time" id="post-time" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Schedule Post">
+            </div>
+        </form>
+    </div>
+
+    <div class="scheduled-posts glassmorphism">
+        <h3>Previously Scheduled Posts</h3>
+
+        {% for postValue in scheduled_posts %}
+        <div class="post">
+            <div class="post-info">
+                <h4><i class="fab fa-{{postValue.handle}}"></i>{{ postValue.title }}</h4>
+                <p>{{ postValue.content }}</p>
+            </div>
+            <div class="post-date">
+                <p>{{ postValue.date }}</p>
+                <p>{{ postValue.time }}</p>
+            </div>
+            <div class="post-actions">
+            {% comment %} <form class="post-edit" action="./edit" method="post" autocomplete="off"> {% csrf_token %}
+                <input type="hidden" name="post-id" value="{{postValue.id}}">
+                <input type="submit" value="Edit">
+            </form> {% endcomment %}
+            <form class="post-delete" action="./delete" method="post" autocomplete="off"> {% csrf_token %}
+                <input type="hidden" name="post-id" value="{{postValue.id}}">
+                <input type="submit" value="Delete">
+            </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

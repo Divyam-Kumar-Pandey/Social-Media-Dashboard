@@ -1,0 +1,54 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="title-container glassmorphism">
+    <div class="header">
+    <h3>Hi, User</h3>
+    <h3>My Social Media Dashboard</h3>
+    </div>
+    <p>Welcome to your social media dashboard. Here you can manage your social media accounts and create new posts.</p>
+</div>
+<div class="media-handles">
+    {% for handle_name in social_media_handles %}
+    <div class="media-handle-card glassmorphism">
+        <div class="heading">
+            <h3><i class="fa-brands fa-{{handle_name}}"></i>{{ handle_name|title }}</h3>
+        </div>
+        <div class="stats">
+            <div class="like">
+                <i class="fa-solid fa-heart"></i>
+                <p>100</p>
+            </div>
+            <div class="comment">
+                <i class="fa-solid fa-hashtag"></i>
+                <p>100</p>
+            </div>
+            <div class="share">
+                <i class="fa-solid fa-square-share-nodes"></i>
+                <p>100</p>
+            </div>
+        </div>
+        <div class="change">
+            <i class="fa-solid fa-arrow-up"></i>
+            <h4>12.5%</h4>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="right-sidebar glassmorphism">
+    <div>
+    <h3>What's on your mind?</h3>
+    <image src="{% static "logo/social-media-8435191.svg" %}" alt="post image">
+    <p>Share your thoughts, spark conversations, and make your voice heard with a click - create a post now and let your ideas shine!
+    </p>
+    </div>
+    <div class="buttons">
+        <button class="schedule-post">Schedule a Post</button>
+        <button class="schedule-post">View Scheduled Posts</button>
+    </div>
+</div>
+
+{% endblock content %}

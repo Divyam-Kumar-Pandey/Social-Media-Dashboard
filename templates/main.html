@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Social Media Dashboard</title>
+    <!-- Add your CSS and JavaScript files here -->
+    <script src="https://kit.fontawesome.com/b8d63a9f31.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="{% static "styles.css" %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')
+    </style>
+
+</head>
+<body>
+    <div class="root-container">
+        <sidebar class="glassmorphism">
+            <div class="container">
+                <div class="company-logo" onclick="window.location.href='/'">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div class="social-icons">
+                    <hr>
+                    {% for icon in social_media_handles %}
+                        <i class="fa-brands fa-{{icon}}"></i>
+                        <hr>
+                    {% endfor %}
+                    <i class="fa-regular fa-square-plus"></i>
+                </div>
+                <div class="user-account">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+            </div>
+        </sidebar>
+        <main>
+        {% block content %}
+
+        {% endblock content %}          
+        </main>
+    </div>
+    <div class="dropdown-user-account hide-dropdown ">
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
+        <a href="../schedule-post">Create New Post</a>
+        <a href="../sign-in">Logout</a>
+    </div>
+
+    
+<script src="{% static "script.js" %}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,741 @@
+body{
+    font-family: "Roboto", sans-serif;
+    padding: 0;
+    margin: 0.2rem;
+    height: 99vh;
+    background: linear-gradient(90deg,  rgba(238, 174, 202, 1)  0%, rgba(148, 187, 233, 1) 100%);
+  
+    
+}
+
+
+.root-container{
+    height: 97%;
+    display: grid;
+    grid-template-columns: 0.15fr 1.85fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "sidebar main main"
+      "sidebar main main"
+      "sidebar main main";
+}
+
+/* ########################  Sidebar   ########################## */
+
+sidebar{
+    padding: 0.5rem;
+    grid-area: sidebar;
+    background-color: #f2f2f2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+}
+
+sidebar .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.company-logo img{
+    width: 20px;
+    height: 20px;
+}
+
+.company-logo, .social-icons, .user-account{    
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;    
+}
+
+.social-icons{
+    height: 100%;
+}
+
+.social-icons i:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transform: translateY(-0.5rem);
+    transition: 0.2s;   
+    /* padding: 0.5rem; */
+
+}
+
+.user-account{
+    height: fit-content;
+    justify-self: flex-end;
+}
+
+sidebar i{
+    cursor: pointer;
+}
+
+/*###################################################################*/
+ 
+
+main{
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 0.7fr;
+    grid-template-rows: 0.3fr 1.7fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "title title title"
+      "media media right-sidebar"
+      "media media right-sidebar";
+}
+
+/* ########################  Header   ########################## */
+
+.title-container{
+    padding: 1rem;
+    background-color: #f2f2f2;
+    border-radius: 0.5rem;
+    grid-area: title;
+}
+.title-container h3{
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+    margin-top: 0;
+    text-align: center;
+}
+
+.title-container p{
+    font-size: 1rem;
+    font-style: italic;
+    margin: 0;
+    margin-top: 0.2rem;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.analytics{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1rem;
+    align-items: center;
+}
+
+.analytics > div{
+    width: fit-content;
+    font-size: 2rem;
+}
+
+
+
+/*############################################################### */
+
+/* ########################  Social Handles   ########################## */
+
+
+.media-handles{
+    grid-area: media;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    overflow-y: scroll;
+    max-height: 100%;
+    scrollbar-width: none;
+    scrollbar-color: #f2f2f2 #f2f2f2;
+    padding-right: 1rem;
+}
+
+.media-handle-card{
+    background-color: #f2f2f2;
+    width: 25%;
+    height: fit-content;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.media-handle-card .heading i, .media-handle-card .heading h3{
+    margin: 0;
+    margin-right: 0.5rem;
+}
+
+.media-handle-card .heading{
+    font-size: 1.4rem;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.media-handle-card .stats{
+    font-size: 1rem;
+    margin: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.media-handle-card .like, .media-handle-card .comment, .media-handle-card .share{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 0rem;
+}
+
+.media-handle-card .like i, .media-handle-card .comment i, .media-handle-card .share i{
+    font-size: 1.5rem;
+    /* center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-handle-card .stats p{
+    margin: 0;
+}
+
+.media-handle-card .change{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+.media-handle-card .change > *{
+    margin: 0 0.1rem;
+}
+
+.media-handle-card:hover{
+    cursor: pointer;
+}
+
+.media-handle-card:active{
+    transform: scale(0.95);
+    transition: 0.2s;
+}
+
+/*############################################################### */
+
+/* ########################  Posts for specific handles   ########################## */
+
+.social-media-posts{
+    grid-column: 1/4;
+    grid-row: 2/4;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 1rem;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    max-height: 100%;
+    scrollbar-width: none;
+    scrollbar-color: #f2f2f2 #f2f2f2;
+    padding-right: 1rem;
+}
+
+.social-media-posts .card{
+    background-color: #f2f2f2;
+    width: 25%;
+    min-width: 100px;
+    
+    height: max-content;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+}
+
+.social-media-posts .card-header{
+    font-size: 1rem;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.social-media-posts h4{
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+.social-media-posts .card-header i, .social-media-posts .card-header h3{
+    margin: 0;
+    margin-right: 0.5rem;
+}
+
+.social-media-posts .card-body{
+    font-size: 1rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.social-media-posts .card-body img{
+    width: 100%;
+    height: 10rem;
+    border-radius: 0.5rem;
+}
+
+.social-media-posts .card-body hr{
+    width: 80%;
+    margin: 1rem 0 0 0;
+    border: 0.2px solid #aeaeae;
+}
+
+.social-media-posts .card-body p{
+    margin: 1rem 0 0 0;
+}
+
+.social-media-posts .card-footer{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+}
+
+.social-media-posts .footer-top{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+}
+
+.social-media-posts .card:hover{
+    transform: scale(0.95);
+    transition: 0.2s;
+}
+
+
+
+
+/* ########################  Right Sidebar   ########################## */
+
+.right-sidebar{
+    height: 93%;
+    padding: 1.8rem;
+    background-color: #f2f2f2;
+    border-radius: 0.5rem;
+    grid-area: right-sidebar; 
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+}
+
+.right-sidebar img{
+    width: 100%;
+}   
+
+.right-sidebar h3{
+    font-size: 1.5rem;
+    margin-top: 0;
+    text-align: center;
+}   
+
+.right-sidebar p{
+    font-size: 1rem;
+    text-align: center;
+    font-style: italic;
+}
+
+.right-sidebar .buttons{
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+
+.right-sidebar button{
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #71adda;
+    font-size: 1rem;
+    cursor: pointer;
+    color: white;
+    margin-top: 1rem;
+}
+
+.right-sidebar button:hover{
+    background-color: #4d7f9f;
+}
+
+.right-sidebar button:active{
+    transform: scale(0.95);
+}
+
+/*#################################################################*/
+
+
+/* ########################  Dropdown   ########################## */
+
+.show-dropdown{
+    display: flex;
+}
+
+.hide-dropdown{
+    display: none;
+}
+
+.dropdown-user-account{
+    position: relative;
+    background-color: #ffffff;
+    /* opacity: 0.5; */
+    border-radius: 0.5rem;
+    flex-direction: column;
+    padding: 0.5rem;
+    top: -9rem;
+    right: -83px;
+    z-index: 1;
+    width: 10rem;
+}
+
+.dropdown-user-account a{
+    padding: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+/*#############################   Form    ####################################*/
+
+.form-container{
+    padding: 1rem;
+    background-color: #f2f2f2;
+    border-radius: 0.5rem;
+    grid-row:2/4;
+    grid-column: 1/3;
+}
+
+.form-container form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-container .form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-container .radio-group{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.form-container .radio-group > label{
+    margin: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.5rem;
+
+}
+
+
+.form-container label{
+    font-size: 1.2rem;
+}
+
+.form-container input, .form-container textarea{
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+}
+
+.form-container input[type="submit"]{
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #71adda;
+    font-size: 1rem;
+    cursor: pointer;
+    color: white;
+}
+
+.form-container input[type="submit"]:hover{
+    background-color: #4d7f9f;
+}
+
+.form-container input[type="submit"]:active{
+    transform: scale(0.95);
+}
+
+/* Radio button styles */
+input[type="radio"] {
+    /* visibility: hidden; */
+    display: none;
+}
+  
+input[type="radio"] + label {
+  font-size: 2rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+input[type="radio"]:checked + label {
+    background-color: #fbfbfb;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+
+}
+
+
+/*#########################   Previous Posts  #################################*/
+
+.scheduled-posts{
+    padding: 1rem;
+    background-color: #f2f2f2;
+    border-radius: 0.5rem;
+    grid-row:2/4;
+    max-width: 100%;
+    grid-column: 3/4;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    word-wrap:break-word;
+    /* add scroll and hide the overflow */
+    overflow-y: scroll;
+    max-height: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: #f2f2f2 #f2f2f2;
+    padding-right: 1rem;
+
+}
+
+.scheduled-posts h4{
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem 0.5rem;
+    text-align: left;
+    flex-direction: row;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.scheduled-posts i{
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+
+.scheduled-posts .post{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: #fbfbfb;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.scheduled-posts .post .title{
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.scheduled-posts .post-date{
+    font-size: 1rem;
+    font-style: italic;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.scheduled-posts .post-date > *{
+    margin: 0 0.5rem;
+}
+
+.scheduled-posts .post-actions{
+    display: flex;
+    justify-content: space-between;
+}
+
+.scheduled-posts [input="submit"]{
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #71adda;
+    font-size: 1rem;
+    cursor: pointer;
+    color: white;
+}
+
+.scheduled-posts [input="submit"]:hover{
+    background-color: #4d7f9f;
+}
+
+.scheduled-posts [input="submit"]:active{
+    transform: scale(0.95);
+}
+
+
+
+
+/* ################################    Extra Effects    ################################# */
+
+.glassmorphism {
+    background-color:  rgba( 255,255,255, 0.5); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 10px;
+    border: 1px solid rgba( 255,255,255, 0.5); 
+}
+
+/*Icons Styling*/
+
+.fa-facebook{
+    color: #3b5998;
+}
+
+.fa-pinterest{
+    color: #bd081c;
+}
+
+.fa-twitter{
+    color: #55acee;
+}
+
+.fa-linkedin{
+    color: #0077b5;
+}
+
+.fa-youtube{
+    color: #cd201f;
+}
+
+.fa-instagram{
+    color: #e4405f;
+}
+
+.fa-heart{
+    color: #ff0000;
+}
+
+.fa-hashtag{
+    color: #74c0fc;
+
+}
+
+.fa-square-share-nodes{
+    color: #3c3c3c;
+}
+
+.fa-arrow-up{
+    color: #4caf50;
+}
+
+/*#################################################################*/
+/*Responsive CSS*/
+
+@media (max-width: 768px) {
+    .root-container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 1.8fr 1fr;
+        gap: 20px 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+          "sidebar"
+          "main"
+          "main";
+    }
+
+    main{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.3fr 1.7fr 1fr;
+        gap: 10px 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+          "title"
+          "media"
+          "right-sidebar";
+    }
+
+    .media-handles{
+        overflow-y: scroll;
+        max-height: 100%;
+        scrollbar-width: none;
+        scrollbar-color: #f2f2f2 #f2f2f2;
+        padding-right: 1rem;
+        min-height: 50vh;
+    }
+
+    .media-handle-card{
+        width: 100%;
+    }
+
+    sidebar hr{
+        display: none;
+    }
+
+    sidebar{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    sidebar .social-icons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .dropdown-user-account {
+        top: -47rem;
+        right: -231px;
+    }
+    
+    .title-container{
+        width: 93%;
+    }
+
+
+    .social-media-posts .card{
+        width: 100%;
+        /* width: fit-content; */
+        overflow: hidden;
+    }
+
+    .social-media-posts .card-body img{
+        width: 50%;
+        height: auto;
+        border-radius: 0.5rem;
+    }
+
+    .form-container{
+        grid-area: media;
+        max-height: 80vh;
+        /* overflow: scroll; */
+    }
+
+    .scheduled-posts{
+        grid-area: right-sidebar;
+        min-height: 50vh;
+        width: 90%;
+    }
+}
+
+
