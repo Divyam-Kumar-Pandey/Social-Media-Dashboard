@@ -2,6 +2,8 @@
 
 ![Home Page](assets/images/home-page.jpg)
 
+Video Link: [My Social Media Dashboard](https://www.youtube.com/watch?v=-ovvryInmz4)
+
 __Project Goal:__
 
 This project is a social media dashboard that allows users to view their social media analytics in one place. The dashboard will display the user's social media analytics from Facebook, Twitter, and Instagram, and other social media platforms.
